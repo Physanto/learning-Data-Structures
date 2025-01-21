@@ -15,10 +15,10 @@ public class Main {
         // long top = stack.peek();
         // System.out.println(elimi + " elemento eliminado");
         // System.out.println(top + " top");
-        String charSequence = "manuel";
-        Stack stack = new Stack(charSequence.length());
+        Integer object = 12345;
+        Stack stack = new Stack(object.length());
 
-        char[] array = charSequence.toCharArray(); 
+        char[] array = object.toCharArray(); 
 
         for(int i = 0; i < charSequence.length(); i++){
             stack.push(array[i]);

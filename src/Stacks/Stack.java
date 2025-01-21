@@ -1,15 +1,20 @@
 package Stacks;
 
-public class Stack {
+import java.util.ArrayList;
+
+public class Stack<T> {
 
     private int maxSize;
-    private char[] arrayStack;
-    private int topStack;
+    private ArrayList<T> arrayStack;
+    private int topStack = -1;
 
     public Stack(int size){
         maxSize = size;
-        arrayStack = new char[maxSize];
-        topStack = -1;
+        arrayStack = new ArrayList<>(size);
+    }
+
+    public Stack(){
+        arrayStack = new ArrayList<>();
     }
 
     public void push(char value){
@@ -18,14 +23,14 @@ public class Stack {
         }
     }
 
-    public char pop(){ 
+    public Object pop(){ 
         if(!isEmpty()){
             return arrayStack[topStack--];
         }
         return 99;
     }
 
-    public char peek(){
+    public Object peek(){
         return arrayStack[topStack];
     }
 
