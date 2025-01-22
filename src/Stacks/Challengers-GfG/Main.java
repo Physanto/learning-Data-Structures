@@ -18,75 +18,70 @@ public class Main {
    isParenthesisBalanced("{()}"); // true
 
 
-    // Casos donde debe devolver false (no balanceado):
 
+    // Casos donde debe devolver false (no balanceado):
    isParenthesisBalanced(")"); // false
 
    isParenthesisBalanced("("); // false
 
-   System.out.println(isParenthesisBalanced("{[}") + "aqui"); // false
+   isParenthesisBalanced("{[}"); // false
 
    isParenthesisBalanced("{[(])}"); // false
 
    isParenthesisBalanced("({[}])}"); // false
 
    isParenthesisBalanced("{[("); // false
+                                    //
+    isParenthesisBalanced("{[()]})"); // false
 
-   isParenthesisBalanced("{[()]})"); // false
 
+    //Casos adicionales
 
-    // Casos adicionales:
-
-   isParenthesisBalanced("a{b[c]d}e"); // true
-
-   isParenthesisBalanced("({[})"); // false
-
-   isParenthesisBalanced("{[(()])}"); // false
+   //isParenthesisBalanced("a{b[c]d}e"); // true
+   //
+   //isParenthesisBalanced("({[})"); // false
+   //
+   //isParenthesisBalanced("{[(()])}"); // false
+   // isParenthesisBalanced("](())");
+    isParenthesisBalanced("{[()()]}");
         
     }
     static boolean isParenthesisBalanced(String s) {
         Arrays.fill(arrayChars, '\0'); 
         char[] charSequence = s.toCharArray();
-        boolean verify = false;
+        byte verify = 0;
+        byte cont = 0;
+        byte contT = 0;
 
-        for(int i = 0; i < charSequence.length; i++){
+        for(char character : charSequence){
 
-            char character = charSequence[i];
-
-            switch(character){
-
-                case '{':
-                case '[':
-                case '(':
-                    push(character);
-                    break;
-
-                case '}': 
-                case ']':  
-                case ')':
-
-                    //System.out.println("este es el valor de top " + top);
-                    if(isEmpty()){ 
-                        verify = false;
-                    }         
-                    else{
-                        char characterX = pop();
-                        if(characterX == '{' ||
-                            characterX == '[' ||
-                            characterX == '('){ 
-                            //System.out.println("esto es lo que entro " + character);
-                            verify = true;
-                        }
+            if(character == '{' || character == '[' || character == '('){
+                push(character);
+                cont++;
+            }
+            else if(character == '}' || character == ']' || character == ')'){ 
+                contT++;
+                if(!isEmpty()){ 
+                    char characterX = pop();
+                    if(characterX == '{' && character == '}'){
+                        verify++;
                     }
-                        
-                    break;
-
-                default:
-                    break;
+                    else if(characterX == '[' && character == ']'){
+                        verify++;
+                    }
+                    else if(characterX == '(' && character == ')'){
+                        verify++;
+                    }
+                }  
             }
         }
-        System.out.println("verify vale " + verify);
-        return verify;
+        //System.out.println("esto es " + verify);
+        if(verify >=1 && cont == verify && contT == verify){
+            System.out.println("true");
+            return true;
+        }
+        System.out.println("false");
+        return false;
     }
 
     public static void push(char c){
@@ -99,6 +94,5 @@ public class Main {
 
     public static boolean isEmpty(){
         return top == -1;
-    }
- 
+    } 
 }
