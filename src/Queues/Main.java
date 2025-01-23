@@ -11,17 +11,13 @@ public class Main {
         queue.push('n');
         queue.push('u');
         queue.push('e');
-        queue.push('l'); 
-
-        System.out.println("eliminado " + queue.pop());
-        System.out.println("eliminado " + queue.pop());
-        System.out.println("eliminado " + queue.pop());
-
-        
-        queue.push('q'); 
-        queue.push('w'); 
-        queue.push('r'); 
+        queue.push('l');
+        System.out.println("elemento eliminado " + queue.pop());
+        System.out.println("elemento eliminado " + queue.pop());
+        queue.push('f');
+        queue.push('k');
+        queue.push('h');
         queue.printQueue();
-        System.out.println("cantidad iterm " + queue.cantItems);
+        System.out.println("cantidad terminos " + queue.cantItems);
     }
 }

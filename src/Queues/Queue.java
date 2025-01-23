@@ -13,14 +13,14 @@ public class Queue {
         arrayQueue = new char[sizeDefault];
         front = 0;
         rear = -1;
-        cantItems = 0;
+        cantItems = -1;
     }
     public Queue(int size){
         this.size = size;
         arrayQueue = new char[size];
         front = 0;
         rear = -1;
-        cantItems = 0;
+        cantItems = -1;
     }
 
     public void push(char element){
@@ -29,17 +29,17 @@ public class Queue {
                 rear = -1;
             } 
             arrayQueue[++rear] = element;
-            cantItems++;
+            ++cantItems;
         } 
         else if(!isFully()){
+            ++cantItems;
             arrayQueue[++rear] = element;
-            cantItems++;
         }
     }
     
     public char pop(){
         if(!isEmpty()){
-            cantItems--;
+            --cantItems;
             return arrayQueue[front++]; 
         }
         return 'z';
@@ -54,11 +54,11 @@ public class Queue {
     }
 
     public boolean isFully(){
-        return size - 1 == rear;
+        return cantItems == size - 1;
     }
 
     public boolean isFullyCircular(){
-        return size - 1 == rear || rear < front-1;
+        return (size - 1 == rear || rear < front-1) && front != 0 ;
     } 
 
     public boolean isEmpty(){
