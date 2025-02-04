@@ -15,6 +15,12 @@ public class OperationsArrays {
     public OperationsArrays(int size){
         this.size = size;
         elements = new int[size];
+        elements[0] = 6;
+        elements[1] = 3;
+        elements[2] = 4;
+        elements[3] = 3;
+        elements[4] = 7;
+
     }
 
     @Override
@@ -68,9 +74,90 @@ public class OperationsArrays {
     }
 
     public void maxAndMinValue(){
+        
+        int max = elements[0];
+        int min = elements[0];
 
         for(int i = 0; i < elements.length; i++){
 
+            if(max < elements[i]){
+                max = elements[i];
+            }
+            else if(min > elements[i]){
+                min = elements[i];
+            }
+        }
+        System.out.println("el menor es: " + min + " y el mayor es: " + max);
+    }
+
+    public int searchElement(int element){
+        
+        for (int i = 0; i < elements.length; i++) {
+
+            if(element == elements[i]){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public void reverseArray(){
+    
+        int temp;
+
+        for (int i = 0, j = elements.length-1; i < elements.length / 2; i++, j--) { 
+
+            temp = elements[i];
+            elements[i] = elements[j];
+            elements[j] = temp;
+        } 
+    }
+
+    public void deleteDuplicates(){
+
+        for (int i = 0; i < elements.length; i++) {
+            for (int j = i+1; j < elements.length; j++) {
+
+                if(elements[i] == elements[j]){
+                    moveElements(j);
+                }
+            } 
+        }
+    }
+
+    public void moveElements(int index){
+        
+        for (int i = index; i < elements.length - 1; i++) {
+            elements[i] = elements[i+1];
+        }
+        elements[elements.length-1] = 0;
+    }
+
+    public void movePositionElementsArray(){
+
+        int prev = elements[0];
+        for (int i = 0; i < elements.length; i++) {
+            int temp = elements[0];
+            elements[i] = prev;
+            prev = temp;
+        }
+    }
+
+    public void movePositionElementsArray(int position){
+        
+        int lastElement = elements[elements.length-1];
+        int lenght = elements.length - 1;
+
+        if(position >= lenght){
+            position = position % lenght;
+        }
+
+        while(true){ 
+            
+            if(position > lenght){
+
+            }
+            elements[lenght] = elements[lenght - position];
         }
     }
     
@@ -84,19 +171,18 @@ public class OperationsArrays {
         }
     }
 
-    
-
     public static void main(String[] args){
         
-        OperationsArrays operationsArrays = new OperationsArrays(6);
-
-        Random random = new Random();
-
-        int[] numbers = new int[10];
+        OperationsArrays operationsArrays = new OperationsArrays(5);
         
-        operationsArrays.fillArrayElementsRandom();
+        //operationsArrays.fillArrayElementsRandom();
+        operationsArrays.printArray();
+        operationsArrays.movePositionElementsArray();
+        System.out.println("\n\n");
 
-        System.out.println(operationsArrays.toString());
+        operationsArrays.printArray();
+
+
 
         // System.out.println("Elementos ingresados al arreglo de forma aleatoria");
         // operationsArrays.printArray();
