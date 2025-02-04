@@ -136,8 +136,8 @@ public class OperationsArrays {
     public void movePositionElementsArray(){
 
         int prev = elements[0];
-        for (int i = 0; i < elements.length; i++) {
-            int temp = elements[0];
+        for (int i = 1; i < elements.length; i++) {
+            int temp = elements[i];
             elements[i] = prev;
             prev = temp;
         }
@@ -145,20 +145,40 @@ public class OperationsArrays {
 
     public void movePositionElementsArray(int position){
         
-        int lastElement = elements[elements.length-1];
         int lenght = elements.length - 1;
 
-        if(position >= lenght){
-            position = position % lenght;
-        }
+        position %= lenght;
+        int k = 0;
+        for(int i = 0; i < elements.length - position; i++){
 
-        while(true){ 
-            
-            if(position > lenght){
+            int prev = elements[i]; 
+            int j = i;
+
+            while(j <= lenght){
+
+                j = j + position;
+                int temp = elements[j];
+                elements[j] = prev;
+                prev = temp;
+                
+                if((j+position) >= lenght) break;
 
             }
-            elements[lenght] = elements[lenght - position];
+                while(j <= lenght){
+
+                    j = j + position;
+                    int temp = elements[j];
+                    elements[j] = prev;
+                    prev = temp;
+                    k = j;
+                    
+                    if((k+position) >= lenght){
+                        j = (j + position) - elements.length;
+                    } 
+                } 
+            }
         }
+        
     }
     
     /**
