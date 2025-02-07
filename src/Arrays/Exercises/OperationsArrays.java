@@ -15,11 +15,11 @@ public class OperationsArrays {
     public OperationsArrays(int size){
         this.size = size;
         elements = new int[size];
-        elements[0] = 6;
-        elements[1] = 3;
-        elements[2] = 4;
-        elements[3] = 3;
-        elements[4] = 7;
+        //elements[0] = 6;
+        //elements[1] = 3;
+        //elements[2] = 4;
+        //elements[3] = 3;
+        //elements[4] = 7;
 
     }
 
@@ -164,21 +164,38 @@ public class OperationsArrays {
                 if((j+position) >= lenght) break;
 
             }
-                while(j <= lenght){
+            while(j <= lenght){
 
-                    j = j + position;
-                    int temp = elements[j];
-                    elements[j] = prev;
-                    prev = temp;
-                    k = j;
-                    
-                    if((k+position) >= lenght){
-                        j = (j + position) - elements.length;
-                    } 
+                j = j + position;
+                int temp = elements[j];
+                elements[j] = prev;
+                prev = temp;
+                k = j;
+                
+                if((k+position) >= lenght){
+                    j = (j + position) - elements.length;
                 } 
+            } 
+
+        }
+    }
+    
+    /**
+     * Ordena un array en orden creciente
+     */
+    public void sortArray(){
+        
+        for (int i = 0; i < elements.length; i++) {
+
+            for (int j = 0; j < i; j++) {
+
+                if(elements[j] > elements[i]){
+                    int aux = elements[i];
+                    elements[i] = elements[j];
+                    elements[j] = aux;
+                }
             }
         }
-        
     }
     
     /**
@@ -193,11 +210,11 @@ public class OperationsArrays {
 
     public static void main(String[] args){
         
-        OperationsArrays operationsArrays = new OperationsArrays(5);
+        OperationsArrays operationsArrays = new OperationsArrays(6);
         
-        //operationsArrays.fillArrayElementsRandom();
+        operationsArrays.fillArrayElementsRandom();
         operationsArrays.printArray();
-        operationsArrays.movePositionElementsArray();
+        operationsArrays.sortArray();
         System.out.println("\n\n");
 
         operationsArrays.printArray();
