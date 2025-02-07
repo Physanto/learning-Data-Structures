@@ -15,11 +15,11 @@ public class OperationsArrays {
     public OperationsArrays(int size){
         this.size = size;
         elements = new int[size];
-        //elements[0] = 6;
-        //elements[1] = 3;
-        //elements[2] = 4;
-        //elements[3] = 3;
-        //elements[4] = 7;
+        // elements[0] = 6;
+        // elements[1] = 3;
+        // elements[2] = 4;
+        // elements[3] = 5;
+        // elements[4] = 1;
 
     }
 
@@ -197,7 +197,28 @@ public class OperationsArrays {
             }
         }
     }
-    
+
+    public void secondNumberMax(){ 
+
+        int max = elements[0];
+        int secondMax = 0;
+        int thirdMax = 0;
+        for(int i = 1; i < elements.length; i++){
+
+            if(max < elements[i]){
+                thirdMax = secondMax;
+                secondMax = max;
+                max = elements[i]; 
+            } 
+            else if(secondMax < elements[i] && elements[i] != max){ 
+                secondMax = elements[i];
+            }
+            else if(thirdMax < elements[i] && elements[i] != secondMax){
+                thirdMax = elements[i];
+            }
+        }
+        System.out.println("el elemento mas grande es " + max + " y el segundo mas grande es " + secondMax + " tercero " + thirdMax);
+    }
     /**
      * Imprime el array
      */
@@ -214,11 +235,12 @@ public class OperationsArrays {
         
         operationsArrays.fillArrayElementsRandom();
         operationsArrays.printArray();
-        operationsArrays.sortArray();
+        //operationsArrays.sortArray();
         System.out.println("\n\n");
 
         operationsArrays.printArray();
 
+        operationsArrays.secondNumberMax();
 
 
         // System.out.println("Elementos ingresados al arreglo de forma aleatoria");

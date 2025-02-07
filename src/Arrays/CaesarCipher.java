@@ -1,6 +1,5 @@
 package Arrays;
 
-
 /**
  * Esto implementa un cifrado cesar no muy modular, pero a groso modo asi funciona un cifrado cesar
  * Ademas se puede modularizar mas, pero aqui solo se trata de saber como funciona y como se implementa en un modo basico.
