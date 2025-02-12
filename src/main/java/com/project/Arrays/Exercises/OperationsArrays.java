@@ -15,11 +15,6 @@ public class OperationsArrays {
     public OperationsArrays(int size){
         this.size = size;
         elements = new int[size];
-        // elements[0] = 6;
-        // elements[1] = 3;
-        // elements[2] = 4;
-        // elements[3] = 5;
-        // elements[4] = 1;
 
     }
 
