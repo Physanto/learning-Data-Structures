@@ -1,5 +1,11 @@
 package com.project.Arrays.ExercisesW3Resource;
 
+/**
+ * Exercise 8: Write a program to copy an array by iterating the array.
+ *
+ * @see <a href"https://www.w3resource.com/java-exercises/array/index.php">W3resources</a>
+ * 
+ */
 public class Exercise8 {
 
     public static void main(String[] args){
