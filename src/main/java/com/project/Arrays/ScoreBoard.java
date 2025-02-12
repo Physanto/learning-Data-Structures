@@ -1,4 +1,4 @@
-package Arrays;
+package com.project.Arrays;
 
 public class ScoreBoard {
     private int numEntries = 0;

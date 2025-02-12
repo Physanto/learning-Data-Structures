@@ -1,6 +1,9 @@
+package com.project.Stacks.ChallengersGfG;
+
 import java.util.Arrays;
 
 public class Main {
+
     static char[] arrayChars = new char[50];
     static int top = -1;
 

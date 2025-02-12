@@ -1,20 +1,14 @@
-package Stacks;
+package com.project.Stacks;
 
-import java.util.ArrayList;
-
-public class Stack<T> {
+public class Stack {
 
     private int maxSize;
-    private ArrayList<T> arrayStack;
+    private char[] arrayStack;
     private int topStack = -1;
 
     public Stack(int size){
         maxSize = size;
-        arrayStack = new ArrayList<>(size);
-    }
-
-    public Stack(){
-        arrayStack = new ArrayList<>();
+        arrayStack = new char[size];
     }
 
     public void push(char value){

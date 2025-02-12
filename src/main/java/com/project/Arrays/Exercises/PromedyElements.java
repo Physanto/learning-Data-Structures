@@ -1,4 +1,4 @@
-package Arrays.Exercises;
+package com.project.Arrays.Exercises;
 
 import java.util.Random;
 

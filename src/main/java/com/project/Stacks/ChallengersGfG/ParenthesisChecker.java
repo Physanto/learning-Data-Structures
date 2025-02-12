@@ -1,4 +1,7 @@
+package com.project.Stacks.ChallengersGfG;
+
 public class ParenthesisChecker {
+
     static char[] arrayChars = new char[50];
     static int top = -1;
 

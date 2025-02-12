@@ -1,4 +1,4 @@
-package Stacks;
+package com.project.Stacks;
 
 public class InverteString {
     private String input;

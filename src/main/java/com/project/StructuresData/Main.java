@@ -1,4 +1,4 @@
-package StructuresData;
+package com.project.StructuresData;
 
 public class Main {
 

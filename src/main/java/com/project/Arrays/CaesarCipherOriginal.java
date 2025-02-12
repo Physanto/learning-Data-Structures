@@ -1,6 +1,4 @@
-package Arrays;
-
-import Arrays.Exercises.SumElements;
+package com.project.Arrays;
 
 public class CaesarCipherOriginal {
 
@@ -52,14 +50,6 @@ public class CaesarCipherOriginal {
     }
 
     public static void main(String[] args){
-        
-        SumElements sumElements = new SumElements();
-        sumElements.in
-        CaesarCipherOriginal caesarCipherOriginal = new CaesarCipherOriginal(3);
-        
-        System.out.println(caesarCipherOriginal.messageEncrypt("MANUEL"));
-        caesarCipherOriginal.printEncoder();
-        System.out.println("\n\n\n");
-        caesarCipherOriginal.printDecoder();
+         
     }
 }

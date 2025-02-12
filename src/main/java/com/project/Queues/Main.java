@@ -1,4 +1,4 @@
-package Queues;
+package com.project.Queues;
 
 public class Main {
 
