@@ -1,11 +1,11 @@
 package com.project.Arrays.ExercisesW3Resource;
+
 /**
  * Exercise 18: Write a Java program to find the second smallest element in an array.
  *
  * @see <a href"https://www.w3resource.com/java-exercises/array/index.php">W3resources</a>
  * 
  */
-
 public class Exercise18 {
 
     public static void main(String[] args){
