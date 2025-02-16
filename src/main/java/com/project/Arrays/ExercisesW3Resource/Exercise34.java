@@ -10,29 +10,31 @@ public class Exercise34 {
 
     public static void main(String[] args){
         // 
-        // int[] elements = {49,1,3,200,2,4,70,5};
-        int[] elements = {40,1,6,41,2,4,3,5};
+        //int[] elements = {49,1,3,200,2,4,70,5};
+        int[] elements = {40,1,42,41,2,4,3,5};
         System.out.println("la secuencia tiene una longitud de " + countSequenceLargest(elements));
     }
 
     public static int countSequenceLargest(int[] elements){
         int aux = elements[0];
-        int cont = 0;
-        int cont2 = 0;
-        int j = 0;
+        int cont = 1;
 
-        for(int i = 0; i < elements.length; i++) {
-            //aux = elements[j];
-            for(j = 0; j < elements.length; j++) {
-                if(aux+1 == elements[j]){ //&& elements[j] != aux){
+        for(int i = 0; i < elements.length; i++) { //2
+            for(int j = 0; j < elements.length; j++) {
+
+                if(aux+1 == elements[j]){
                     aux = elements[j];
-                    System.out.println(aux);
                     cont++; 
                     break;
                 }
+                else if(j == elements.length - 1){
+                    cont = 1;
+                    aux = elements[i+1];
+                }
             }
-            if(i+1 < elements.length) aux = elements[i+1];
-        }
+        }        
         return cont;
+        //FALTA TERMINARLO, HAY QUE HALLAR LA FORMA DE PODER IDENTIFICAR DONDE FUE LA ULTIMA VEZ
+        //QUE SE USO UN VALOR DEL ARRAY
     }
 }
